@@ -1,0 +1,12 @@
+
+Dear ${name},
+
+Your service charge is overdue. Kindly pay online by end of the week.
+
+If no payment is received next week then our friendly service charge collection team outsourced to
+Soprano Limited will be in prompt contact with you in person at your registered address '${address}'.
+
+Kindly let us know if your current phone ${phone} or address has changed.
+
+Kind Regards,
+Hammer Kneecap Limited
