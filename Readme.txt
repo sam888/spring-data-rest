@@ -34,14 +34,14 @@ Note any SQL INSERT put in /src/main/resources/import.sql will be used to prepop
     - http://localhost:8080/admin/mock?testData=100 -> mock 100 tasks for processing
     - http://localhost:8080/admin/monitor?enable=t -> enable monitoring to produce extra logging as below every 3 sec
 
-	    	...
-	    	Active threads running tasks: 3
-			Tasks completed: 7
-			Tasks waiting in queue: 5
-			Unprocessed tasks outside queue: 14
-			...
+            ...
+            Active threads running tasks: 3
+            Tasks completed: 7
+            Tasks waiting in queue: 5
+            Unprocessed tasks outside queue: 14
+            ...
 
-	  http://localhost:8080/admin/monitor?enable=t -> disable monitoring
+	  http://localhost:8080/admin/monitor?enable=f -> disable monitoring
 
     - http://localhost:8080/admin/stop -> Stop the engine
     - http://localhost:8080/admin/start -> Restart the engine
