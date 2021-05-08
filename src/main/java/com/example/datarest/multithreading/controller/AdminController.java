@@ -2,7 +2,9 @@ package com.example.datarest.multithreading.controller;
 
 import com.example.datarest.multithreading.DemoMultiThreadingServiceEngine;
 import com.example.datarest.aop.LogExecutionTime;
+import com.example.datarest.service.SchedulerService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,9 @@ public class AdminController {
 
    @Autowired
    private DemoMultiThreadingServiceEngine demoMultiThreadingServiceEngine;
+
+   @Autowired
+   private SchedulerService schedulerService;
 
 
    @LogExecutionTime
@@ -62,6 +67,15 @@ public class AdminController {
       DemoMultiThreadingServiceEngine.mockData( testDataNumber );
 
       return ResponseEntity.accepted().body("Number of test data simulated: " + testDataNumber );
+   }
+
+   @RequestMapping("/polling")
+   public ResponseEntity<String> poll(@RequestParam(value="disablePolling") String disablePolling) {
+      if ( "t".equalsIgnoreCase( disablePolling ) || "f".equalsIgnoreCase( disablePolling )) {
+         schedulerService.stopPolling( BooleanUtils.toBoolean( disablePolling ) );
+      }
+
+      return ResponseEntity.accepted().body("Polling disabled: " + BooleanUtils.toBoolean( disablePolling )  );
    }
 
 }

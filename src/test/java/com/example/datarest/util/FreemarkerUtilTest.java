@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +24,10 @@ public class FreemarkerUtilTest {
    private static File templateFile = null;
 
    @BeforeAll
-   public static void init(){
+   public static void init() throws URISyntaxException {
       ClassLoader classLoader = FreemarkerUtilTest.class.getClassLoader();
-      templateFileDirectory = new File( classLoader.getResource(resourceName).getFile() );
-      templateFile = new File( classLoader.getResource(resourceName + "/" + templateName).getFile() );
+      templateFileDirectory = new File( classLoader.getResource(resourceName).toURI() );
+      templateFile = new File( classLoader.getResource(resourceName + "/" + templateName).toURI() );
    }
 
    @Test
