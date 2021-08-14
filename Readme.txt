@@ -61,31 +61,23 @@ Note any SQL INSERT put in /src/main/resources/import.sql will be used to pre-po
 
 * PersonRepository is used in https://spring.io/guides/gs/accessing-data-rest/ to showcase how a Rest service can be created with minimal code. While good for demo, it's bad for Prod code, much better practice is to create a service layer class (i.e. PersonService) to delegate call to PersonRepository. Then a Rest controller class (i.e. PersonController) to expose actual service by using PersonService. Why? For security and fine-grained access control. Also service layer will be the perfect place to implement more complicated use cases and group multiple database transactions into one then roll it back if anything goes wrong, e.g. unexpected Exception happens.
 
-* Basic authentication is now implemented for Rest API. Using it is as simple as adding the annotation @BasicAuthentication
-  as input argument in the controller's mapping method. See BasicAuthenticationTestController for how to use it.
+* Basic authentication is now implemented for Rest API. Using it is as simple as adding the annotation @BasicAuthentication as input argument in the controller's mapping method. See BasicAuthenticationTestController for how to use it.
 
-  Why use the annotation approach as opposed to using classic Spring Security XML config or Java config class (that extends
-  WebSecurityConfigurerAdapter) to specify all the URLs that requires basic authentication?
+  Why use the annotation approach as opposed to using classic Spring Security XML config or Java config class (that extends WebSecurityConfigurerAdapter) to specify all the URLs that requires basic authentication?
 
   Well... because
     1. Spring Security is a bit heavy weight, not all Spring Boot projects need it
 
-    2. I don't like the idea of centralizing security of all URLs to a single XML/Java file unless I have to. Introducing
-       a bug means potentially breaking every other service at once! Not to mention testing. To guarantee 100% nothing
-       else is broken requires testing most if not all the Rest API specified in that file again.
+    2. I don't like the idea of centralizing security of all URLs to a single XML/Java file unless I have to. Introducing a bug means potentially breaking every other service at once! Not to mention testing. To guarantee 100% nothing else is broken requires testing most if not all the Rest API specified in that file again.
 
-       Having said that, using Spring Security approach may be the way to go for big projects or projects requiring
-       complex security features supported out of box by Spring Security.
+       Having said that, using Spring Security approach may be the way to go for big projects or projects requiring complex security features supported out of box by Spring Security.
 
-    3. By just looking at a controller's mapping method, I know Basic Authentication is required, no need to double-check
-       XML/Java config file
+    3. By just looking at a controller's mapping method, I know Basic Authentication is required, no need to double-check XML/Java config file
 
     4. It's way cooler to use annotation...
 
-   The infrastructure code to make it happens are BasicAuthentication, AuthenticationException, BasicAuthenticationException,
-   BasicAuthenticationHandler, BasicAuthenticationResolver. To fully understand how it all works together, google it!
+   The infrastructure code to make it happens are BasicAuthentication, AuthenticationException, BasicAuthenticationException, BasicAuthenticationHandler, BasicAuthenticationResolver. To fully understand how it all works together, google it!
 
-   To adapt this for production, modify BasicAuthenticationHandler to query database for user credential. It's using
-   hard-coded credential right now for authentication. See BasicAuthenticationApiTest for its unit tests.
+   To adapt this for production, modify BasicAuthenticationHandler to query database for user credential. It's using hard-coded credential right now for authentication. See BasicAuthenticationApiTest for its unit tests.
 
 
