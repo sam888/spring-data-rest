@@ -1,6 +1,6 @@
 package com.example.datarest.multithreading.processor;
 
-import com.example.datarest.aop.LogExecutionTime;
+import com.example.datarest.annotation.LogExecutionTime;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

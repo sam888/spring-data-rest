@@ -1,7 +1,7 @@
-package com.example.datarest.multithreading.controller;
+package com.example.datarest.controller;
 
 import com.example.datarest.multithreading.DemoMultiThreadingServiceEngine;
-import com.example.datarest.aop.LogExecutionTime;
+import com.example.datarest.annotation.LogExecutionTime;
 import com.example.datarest.service.SchedulerService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.BooleanUtils;

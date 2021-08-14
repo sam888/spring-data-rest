@@ -1,7 +1,6 @@
 package com.example.datarest.service;
 
-import com.example.datarest.aop.SkipExecution;
-import lombok.Data;
+import com.example.datarest.annotation.SkipExecution;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package com.example.datarest.multithreading.controller;
+package com.example.datarest.controller;
 
 import com.example.datarest.model.Person;
 import com.example.datarest.service.PersonService;

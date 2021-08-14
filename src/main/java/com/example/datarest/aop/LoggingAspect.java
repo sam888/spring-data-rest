@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-   @Around("@annotation(LogExecutionTime)")
+   @Around("@annotation(com.example.datarest.annotation.LogExecutionTime)")
    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
       final long start = System.currentTimeMillis();
       final Object proceed = joinPoint.proceed();

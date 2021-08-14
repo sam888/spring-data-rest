@@ -1,5 +1,6 @@
 package com.example.datarest.aop;
 
+import com.example.datarest.annotation.SkipExecution;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -36,7 +37,7 @@ import java.util.Optional;
 @Order(0) // Highest precedence
 public class SkipExecutionAspect {
 
-   @Around(value = "@annotation(SkipExecution)")
+   @Around(value = "@annotation(com.example.datarest.annotation.SkipExecution)")
    public Object skipExecution(ProceedingJoinPoint joinPoint) throws Throwable {
 
       String skipFlag = getSkipFlag(joinPoint);
@@ -47,7 +48,7 @@ public class SkipExecutionAspect {
 
       if ( ! skipFlagOptional.isPresent()) {
          throw new IllegalStateException("Boolean field " + skipFlag +
-            " specified by the @SkipExecution(..) annotation does not exist");
+            " specified by the annotation @SkipExecution(..) does not exist");
       }
 
       Field skipFlagField = skipFlagOptional.get();

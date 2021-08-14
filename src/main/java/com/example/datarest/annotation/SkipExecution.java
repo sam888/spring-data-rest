@@ -1,4 +1,4 @@
-package com.example.datarest.aop;
+package com.example.datarest.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
