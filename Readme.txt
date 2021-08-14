@@ -76,7 +76,7 @@ Note any SQL INSERT put in /src/main/resources/import.sql will be used to pre-po
 
     4. It's way cooler to use annotation...
 
-   The infrastructure code to make it happens are BasicAuthentication, AuthenticationException, BasicAuthenticationException, BasicAuthenticationHandler, BasicAuthenticationResolver. To fully understand how it all works together, google it!
+   The infrastructure code to make it happens are BasicAuthentication, AuthenticationException, BasicAuthenticationException, BasicAuthenticationHandler, BasicAuthenticationResolver and WebConfig. To fully understand how it all works together, google it!
 
    To adapt this for production, modify BasicAuthenticationHandler to query database for user credential. It's using hard-coded credential right now for authentication. See BasicAuthenticationApiTest for its unit tests.
 
